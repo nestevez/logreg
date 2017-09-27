@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login &amp; Reg | Home</title>
+  </head>
+  <body>
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+      <form action="{% url 'reg' %}" method="post">
+        <h1>Registration</h1>
+        {% csrf_token %}
+        {{ reg }}
+        <input type="submit" value="Register">
+      </form>
+      <form action="{% url 'log' %}" method="post">
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{ log }}
+        <input type="submit" value="Login">
+      </form>
+  </body>
+</html>
